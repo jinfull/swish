@@ -1,0 +1,20 @@
+{
+  "name": "nba",
+  "version": "1.0.0",
+  "description": "NBA Data Visualizer",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinfull/nba.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinfull/nba/issues"
+  },
+  "homepage": "https://github.com/jinfull/nba#readme"
+}
