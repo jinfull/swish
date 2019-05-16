@@ -4,7 +4,8 @@
   "description": "NBA Data Visualizer",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/jinfull/nba/issues"
   },
-  "homepage": "https://github.com/jinfull/nba#readme"
+  "homepage": "https://github.com/jinfull/nba#readme",
+  "main": "main.js",
+  "dependencies": {
+    "d3": "^5.9.2",
+    "d3.chart": "^0.3.0"
+  },
+  "devDependencies": {}
 }
