@@ -21,7 +21,12 @@
   "main": "main.js",
   "dependencies": {
     "d3": "^5.9.2",
-    "d3.chart": "^0.3.0"
+    "d3.chart": "^0.3.0",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "externals": {
+    "fs": "commonjs fs"
+  }
 }
