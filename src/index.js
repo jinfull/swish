@@ -1,14 +1,12 @@
 import { data } from "../static/test_data";
 import { dataTwo } from "../static/test_data_two";
-import { processing } from "./processing";
+import { ericFormat } from '../static/eric';
 
 // import { playerShotChart } from './test';
-// import * as d3 from 'd3';
 
-
-let showChart = (data) => {
+let showChart = (datum) => {
   const container = d3.select(".chart-container");
-  container.select('#chart').remove();
+  // container.select('#chart').remove();
   container.append("div").attr("id", "chart")
     .append("svg")
     .chart("BasketballShotChart", {
@@ -34,32 +32,32 @@ let showChart = (data) => {
         bin.z = (totalZ + point.z * attempts) / bin.attempts;
       },
       // update radius threshold to at least 4 shots to clean up the chart
-      hexagonRadiusThreshold: 0
+      hexagonRadiusThreshold: 1
     })
-    .draw(data);
-  debugger
-  container.append("div").attr('class', 'yolo').text(data[0].x);
+    .draw(datum);
+  // container.append("div").attr('class', 'yolo').text(data[0].x);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // d3.json("src/test_data.json")
+  // d3.json("/src/test_data.json")
   //   .then(data => {
   //     console.log(data);
   //   });
-  showChart(dataTwo);
+  // console.log(data);
+  console.log(ericFormat[0]["Nikola Jokic"]["2015"])
+  showChart(ericFormat[0]["Nikola Jokic"]["2016"]);
 
-  let slider = d3.select('#year');
-  slider.on('change', function () {
-    showChart(this.value);
-  });
+  // let slider = d3.select('#year');
+  // slider.on('change', function () {
+  //   showChart(this.value);
+  // });
 
+  // const yearSlider = document.getElementById('year');
+  // yearSlider.addEventListener("change", (e) => {
+  //   console.log(e);
 
-  const yearSlider = document.getElementById('year');
-  yearSlider.addEventListener("change", (e) => {
-    console.log(e)
+  //   e.preventDefault();
 
-    e.preventDefault();
-
-    showChart(data);
-  });
+  //   showChart(dataTwo);
+  // });
 });
