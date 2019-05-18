@@ -1,265 +1,392 @@
 export const data = [
   // {
   //   "lebron": [{
-  //     year: "2017-2019",
+  //     year: "2017-2018",
   //     data: [{x,y}, {x,y}]
   //   }],
   //   "jokic":
   // }
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: 1.77
-  },
-  { x: 26.9, y: 10.8, made: 0, attempts: 1, z: 1.77
-  },
-  { x: 23.5, y: 6.2, made: 1, attempts: 1
-  },
-  { x: 23.5, y: 6.2, made: 1, attempts: 1
-  },
-  { x: 2, y: 9, made: 3, attempts: 3, z: 1.77
-  },
-  { x: 2, y: 8, made: 0, attempts: 4, z: -0.96
-  },
-  { x: 2, y: 4, made: 0, attempts: 1, z: -0.9
-  },
-  { x: 2, y: 6, made: 1, attempts: 2, z: 0.35
-  },
-  { x: 2, y: 13, made: 0, attempts: 1, z: -0.83
-  },
-  { x: 2, y: 11, made: 1, attempts: 3, z: -0.26
-  },
-  { x: 48, y: 10, made: 1, attempts: 2, z: 0.41
-  },
-  { x: 48, y: 7, made: 1, attempts: 1, z: 1.93
-  },
-  { x: 48, y: 8, made: 2, attempts: 4, z: 0.46
-  },
-  { x: 48, y: 6, made: 0, attempts: 2, z: -1.33
-  },
-  { x: 48, y: 11, made: 1, attempts: 2, z: 0.39
-  },
-  { x: 48, y: 18, made: 1, attempts: 1, z: 1.09
-  },
-  { x: 48, y: 9, made: 0, attempts: 1, z: -1.1
-  },
-  { x: 48, y: 4, made: 1, attempts: 1, z: 1.54
-  },
-  { x: 48, y: 5, made: 0, attempts: 1, z: -1.08
-  },
-  { x: 49, y: 12, made: 1, attempts: 1, z: 1.29
-  },
-  { x: 49, y: 7, made: 1, attempts: 1, z: 1.4
-  },
-  { x: 49, y: 5, made: 3, attempts: 3, z: 1.49
-  },
-  { x: 22, y: 7, made: 11, attempts: 15, z: 0.9
-  },
-  { x: 22, y: 6, made: 4, attempts: 6, z: 0.48
-  },
-  { x: 22, y: 10, made: 2, attempts: 3, z: 0.81
-  },
-  { x: 22, y: 8, made: 3, attempts: 4, z: 0.83
-  },
-  { x: 22, y: 25, made: 0, attempts: 1, z: -0.89
-  },
-  { x: 22, y: 31, made: 1, attempts: 1, z: 1.93
-  },
-  { x: 22, y: 9, made: 0, attempts: 1, z: -0.89
-  },
-  { x: 23, y: 7, made: 38, attempts: 50, z: 0.83
-  },
-  { x: 23, y: 8, made: 9, attempts: 17, z: 0.2
-  },
-  { x: 23, y: 6, made: 31, attempts: 42, z: 0.53
-  },
-  { x: 23, y: 9, made: 2, attempts: 3, z: 0.76
-  },
-  { x: 23, y: 14, made: 0, attempts: 1, z: -0.88
-  },
-  { x: 23, y: 10, made: 2, attempts: 3, z: 0.84
-  },
-  { x: 23, y: 12, made: 0, attempts: 1, z: -0.91
-  },
-  { x: 23, y: 16, made: 0, attempts: 1, z: -0.92
-  },
-  { x: 23, y: 34, made: 0, attempts: 1, z: -0.5
-  },
-  { x: 23, y: 15, made: 1, attempts: 2, z: 0.4
-  },
-  { x: 23, y: 23, made: 1, attempts: 1, z: 1.17
-  },
-  { x: 23, y: 18, made: 1, attempts: 2, z: -0.03
-  },
-  { x: 23, y: 5, made: 2, attempts: 2, z: 1.07
-  },
-  { x: 23, y: 19, made: 0, attempts: 2, z: -1.09
-  },
-  { x: 23, y: 11, made: 0, attempts: 1, z: -0.99
-  },
-  { x: 23, y: 22, made: 0, attempts: 1, z: -0.82
-  },
-  { x: 23, y: 33, made: 1, attempts: 1, z: 1.05
-  },
-  { x: 24, y: 8, made: 12, attempts: 20, z: 0.22
-  },
-  { x: 24, y: 6, made: 75, attempts: 81, z: 1.18
-  },
-  { x: 24, y: 21, made: 1, attempts: 3, z: -0.4
-  },
-  { x: 24, y: 7, made: 64, attempts: 81, z: 0.63
-  },
-  { x: 24, y: 15, made: 1, attempts: 2, z: 0.19
-  },
-  { x: 24, y: 9, made: 5, attempts: 6, z: 1.14
-  },
-  { x: 24, y: 5, made: 3, attempts: 3, z: 0.9
-  },
-  { x: 24, y: 30, made: 0, attempts: 1, z: -0.81
-  },
-  { x: 24, y: 13, made: 2, attempts: 2, z: 1.47
-  },
-  { x: 24, y: 24, made: 1, attempts: 1, z: 1.51
-  },
-  { x: 24, y: 35, made: 0, attempts: 1, z: -0.71
-  },
-  { x: 24, y: 18, made: 1, attempts: 1, z: 1.32
-  },
-  { x: 24, y: 19, made: 0, attempts: 2, z: -0.91
-  },
-  { x: 24, y: 32, made: 1, attempts: 1, z: 1.62
-  },
-  { x: 24, y: 10, made: 1, attempts: 1, z: 1.52
-  },
-  { x: 24, y: 34, made: 0, attempts: 1, z: -0.55
-  },
-  { x: 24, y: 33, made: 1, attempts: 1, z: 1.66
-  },
-  { x: 24, y: 25, made: 0, attempts: 2, z: -0.92
-  },
-  { x: 24, y: 12, made: 0, attempts: 2, z: -0.93
-  },
-  { x: 24, y: 31, made: 1, attempts: 2, z: 0.4
-  },
-  { x: 24, y: 14, made: 1, attempts: 1, z: 1.28
-  },
-  { x: 26, y: 7, made: 39, attempts: 57, z: 0.29
-  },
-  { x: 26, y: 15, made: 0, attempts: 1, z: -0.83
-  },
-  { x: 26, y: 9, made: 3, attempts: 3, z: 1.57
-  },
-  { x: 26, y: 8, made: 12, attempts: 17, z: 0.66
-  },
-  { x: 26, y: 6, made: 23, attempts: 29, z: 0.73
-  },
-  { x: 26, y: 31, made: 1, attempts: 3, z: 0.0
-  },
-  { x: 26, y: 27, made: 1, attempts: 1, z: 1.5
-  },
-  { x: 26, y: 5, made: 0, attempts: 1, z: -1.58
-  },
-  { x: 26, y: 24, made: 0, attempts: 1, z: -0.85
-  },
-  { x: 26, y: 12, made: 2, attempts: 2, z: 1.42
-  },
-  { x: 26, y: 23, made: 1, attempts: 2, z: 0.24
-  },
-  { x: 26, y: 32, made: 1, attempts: 2, z: 0.37
-  },
-  { x: 25, y: 7, made: 68, attempts: 80, z: 1.0
-  },
-  { x: 25, y: 6, made: 82, attempts: 98, z: 0.58
-  },
-  { x: 25, y: 31, made: 1, attempts: 8, z: -0.59
-  },
-  { x: 25, y: 8, made: 18, attempts: 26, z: 0.52
-  },
-  { x: 25, y: 9, made: 1, attempts: 3, z: -0.43
-  },
-  { x: 25, y: 11, made: 5, attempts: 5, z: 1.58
-  },
-  { x: 25, y: 5, made: 6, attempts: 6, z: 0.82
-  },
-  { x: 25, y: 28, made: 0, attempts: 1, z: -0.88
-  },
-  { x: 25, y: 15, made: 2, attempts: 2, z: 1.49
-  },
-  { x: 25, y: 21, made: 1, attempts: 2, z: 0.23
-  },
-  { x: 25, y: 12, made: 2, attempts: 2, z: 1.61
-  },
-  { x: 25, y: 10, made: 2, attempts: 3, z: 0.82
-  },
-  { x: 25, y: 32, made: 1, attempts: 2, z: 0.15
-  },
-  { x: 25, y: 18, made: 1, attempts: 2, z: 0.14
-  },
-  { x: 25, y: 25, made: 1, attempts: 1, z: 1.36
-  },
-  { x: 25, y: 14, made: 1, attempts: 2, z: 0.24
-  },
-  { x: 25, y: 13, made: 0, attempts: 1, z: -1.05
-  },
-  { x: 25, y: 30, made: 0, attempts: 1, z: -0.85
-  },
-  { x: 25, y: 22, made: 0, attempts: 1, z: -0.82
-  },
-  { x: 32, y: 10, made: 3, attempts: 5, z: 0.64
-  },
-  { x: 32, y: 25, made: 1, attempts: 2, z: 0.17
-  },
-  { x: 32, y: 15, made: 1, attempts: 2, z: 0.25
-  },
-  { x: 32, y: 32, made: 0, attempts: 1, z: -0.78
-  },
-  { x: 32, y: 6, made: 0, attempts: 1, z: -0.83
-  },
-  { x: 32, y: 9, made: 0, attempts: 1, z: -0.96
-  },
-  { x: 32, y: 14, made: 0, attempts: 1, z: -0.93
-  },
-  { x: 32, y: 23, made: 1, attempts: 1, z: 1.12
-  },
-  { x: 32, y: 30, made: 0, attempts: 2, z: -0.85
-  },
-  { x: 32, y: 16, made: 0, attempts: 1, z: -0.81
-  },
-  { x: 32, y: 19, made: 1, attempts: 1, z: 1.02
-  },
-  { x: 32, y: 29, made: 0, attempts: 1, z: -0.76
-  },
-  { x: 32, y: 12, made: 1, attempts: 1, z: 1.24
-  },
-  { x: 32, y: 33, made: 0, attempts: 1, z: -1.0
-  },
-  { x: 8, y: 25, made: 2, attempts: 5, z: 0.18
-  },
-  { x: 8, y: 4, made: 0, attempts: 1, z: -0.82
-  },
-  { x: 8, y: 9, made: 0, attempts: 2, z: -0.94
-  },
-  { x: 8, y: 6, made: 1, attempts: 1, z: 1.47
-  },
-  { x: 8, y: 15, made: 0, attempts: 3, z: -0.83
-  },
-  { x: 8, y: 18, made: 2, attempts: 3, z: 0.37
-  },
-  { x: 8, y: 24, made: 1, attempts: 1, z: 1.58
-  },
-  { x: 8, y: 19, made: 1, attempts: 1, z: 1.29
-  },
-  { x: 8, y: 38, made: 0, attempts: 1, z: 0.0
-  },
-  { x: 8, y: 8, made: 1, attempts: 1, z: 1.18
-  }
+  {
+    x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77, player: 'Luka Doncic'
+  },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
+  // },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
+  // },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
+  // },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: -1.77
+  // },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: 1.77
+  // },
+  // {
+  //   x: 26.9, y: 10.8, made: 0, attempts: 1, z: 1.77
+  // },
+  // {
+  //   x: 23.5, y: 6.2, made: 1, attempts: 1
+  // },
+  // {
+  //   x: 23.5, y: 6.2, made: 1, attempts: 1
+  // },
+  // {
+  //   x: 2, y: 9, made: 3, attempts: 3, z: 1.77
+  // },
+  // {
+  //   x: 2, y: 8, made: 0, attempts: 4, z: -0.96
+  // },
+  // {
+  //   x: 2, y: 4, made: 0, attempts: 1, z: -0.9
+  // },
+  // {
+  //   x: 2, y: 6, made: 1, attempts: 2, z: 0.35
+  // },
+  // {
+  //   x: 2, y: 13, made: 0, attempts: 1, z: -0.83
+  // },
+  // {
+  //   x: 2, y: 11, made: 1, attempts: 3, z: -0.26
+  // },
+  // {
+  //   x: 48, y: 10, made: 1, attempts: 2, z: 0.41
+  // },
+  // {
+  //   x: 48, y: 7, made: 1, attempts: 1, z: 1.93
+  // },
+  // {
+  //   x: 48, y: 8, made: 2, attempts: 4, z: 0.46
+  // },
+  // {
+  //   x: 48, y: 6, made: 0, attempts: 2, z: -1.33
+  // },
+  // {
+  //   x: 48, y: 11, made: 1, attempts: 2, z: 0.39
+  // },
+  // {
+  //   x: 48, y: 18, made: 1, attempts: 1, z: 1.09
+  // },
+  // {
+  //   x: 48, y: 9, made: 0, attempts: 1, z: -1.1
+  // },
+  // {
+  //   x: 48, y: 4, made: 1, attempts: 1, z: 1.54
+  // },
+  // {
+  //   x: 48, y: 5, made: 0, attempts: 1, z: -1.08
+  // },
+  // {
+  //   x: 49, y: 12, made: 1, attempts: 1, z: 1.29
+  // },
+  // {
+  //   x: 49, y: 7, made: 1, attempts: 1, z: 1.4
+  // },
+  // {
+  //   x: 49, y: 5, made: 3, attempts: 3, z: 1.49
+  // },
+  // {
+  //   x: 22, y: 7, made: 11, attempts: 15, z: 0.9
+  // },
+  // {
+  //   x: 22, y: 6, made: 4, attempts: 6, z: 0.48
+  // },
+  // {
+  //   x: 22, y: 10, made: 2, attempts: 3, z: 0.81
+  // },
+  // {
+  //   x: 22, y: 8, made: 3, attempts: 4, z: 0.83
+  // },
+  // {
+  //   x: 22, y: 25, made: 0, attempts: 1, z: -0.89
+  // },
+  // {
+  //   x: 22, y: 31, made: 1, attempts: 1, z: 1.93
+  // },
+  // {
+  //   x: 22, y: 9, made: 0, attempts: 1, z: -0.89
+  // },
+  // {
+  //   x: 23, y: 7, made: 38, attempts: 50, z: 0.83
+  // },
+  // {
+  //   x: 23, y: 8, made: 9, attempts: 17, z: 0.2
+  // },
+  // {
+  //   x: 23, y: 6, made: 31, attempts: 42, z: 0.53
+  // },
+  // {
+  //   x: 23, y: 9, made: 2, attempts: 3, z: 0.76
+  // },
+  // {
+  //   x: 23, y: 14, made: 0, attempts: 1, z: -0.88
+  // },
+  // {
+  //   x: 23, y: 10, made: 2, attempts: 3, z: 0.84
+  // },
+  // {
+  //   x: 23, y: 12, made: 0, attempts: 1, z: -0.91
+  // },
+  // {
+  //   x: 23, y: 16, made: 0, attempts: 1, z: -0.92
+  // },
+  // {
+  //   x: 23, y: 34, made: 0, attempts: 1, z: -0.5
+  // },
+  // {
+  //   x: 23, y: 15, made: 1, attempts: 2, z: 0.4
+  // },
+  // {
+  //   x: 23, y: 23, made: 1, attempts: 1, z: 1.17
+  // },
+  // {
+  //   x: 23, y: 18, made: 1, attempts: 2, z: -0.03
+  // },
+  // {
+  //   x: 23, y: 5, made: 2, attempts: 2, z: 1.07
+  // },
+  // {
+  //   x: 23, y: 19, made: 0, attempts: 2, z: -1.09
+  // },
+  // {
+  //   x: 23, y: 11, made: 0, attempts: 1, z: -0.99
+  // },
+  // {
+  //   x: 23, y: 22, made: 0, attempts: 1, z: -0.82
+  // },
+  // {
+  //   x: 23, y: 33, made: 1, attempts: 1, z: 1.05
+  // },
+  // {
+  //   x: 24, y: 8, made: 12, attempts: 20, z: 0.22
+  // },
+  // {
+  //   x: 24, y: 6, made: 75, attempts: 81, z: 1.18
+  // },
+  // {
+  //   x: 24, y: 21, made: 1, attempts: 3, z: -0.4
+  // },
+  // {
+  //   x: 24, y: 7, made: 64, attempts: 81, z: 0.63
+  // },
+  // {
+  //   x: 24, y: 15, made: 1, attempts: 2, z: 0.19
+  // },
+  // {
+  //   x: 24, y: 9, made: 5, attempts: 6, z: 1.14
+  // },
+  // {
+  //   x: 24, y: 5, made: 3, attempts: 3, z: 0.9
+  // },
+  // {
+  //   x: 24, y: 30, made: 0, attempts: 1, z: -0.81
+  // },
+  // {
+  //   x: 24, y: 13, made: 2, attempts: 2, z: 1.47
+  // },
+  // {
+  //   x: 24, y: 24, made: 1, attempts: 1, z: 1.51
+  // },
+  // {
+  //   x: 24, y: 35, made: 0, attempts: 1, z: -0.71
+  // },
+  // {
+  //   x: 24, y: 18, made: 1, attempts: 1, z: 1.32
+  // },
+  // {
+  //   x: 24, y: 19, made: 0, attempts: 2, z: -0.91
+  // },
+  // {
+  //   x: 24, y: 32, made: 1, attempts: 1, z: 1.62
+  // },
+  // {
+  //   x: 24, y: 10, made: 1, attempts: 1, z: 1.52
+  // },
+  // {
+  //   x: 24, y: 34, made: 0, attempts: 1, z: -0.55
+  // },
+  // {
+  //   x: 24, y: 33, made: 1, attempts: 1, z: 1.66
+  // },
+  // {
+  //   x: 24, y: 25, made: 0, attempts: 2, z: -0.92
+  // },
+  // {
+  //   x: 24, y: 12, made: 0, attempts: 2, z: -0.93
+  // },
+  // {
+  //   x: 24, y: 31, made: 1, attempts: 2, z: 0.4
+  // },
+  // {
+  //   x: 24, y: 14, made: 1, attempts: 1, z: 1.28
+  // },
+  // {
+  //   x: 26, y: 7, made: 39, attempts: 57, z: 0.29
+  // },
+  // {
+  //   x: 26, y: 15, made: 0, attempts: 1, z: -0.83
+  // },
+  // {
+  //   x: 26, y: 9, made: 3, attempts: 3, z: 1.57
+  // },
+  // {
+  //   x: 26, y: 8, made: 12, attempts: 17, z: 0.66
+  // },
+  // {
+  //   x: 26, y: 6, made: 23, attempts: 29, z: 0.73
+  // },
+  // {
+  //   x: 26, y: 31, made: 1, attempts: 3, z: 0.0
+  // },
+  // {
+  //   x: 26, y: 27, made: 1, attempts: 1, z: 1.5
+  // },
+  // {
+  //   x: 26, y: 5, made: 0, attempts: 1, z: -1.58
+  // },
+  // {
+  //   x: 26, y: 24, made: 0, attempts: 1, z: -0.85
+  // },
+  // {
+  //   x: 26, y: 12, made: 2, attempts: 2, z: 1.42
+  // },
+  // {
+  //   x: 26, y: 23, made: 1, attempts: 2, z: 0.24
+  // },
+  // {
+  //   x: 26, y: 32, made: 1, attempts: 2, z: 0.37
+  // },
+  // {
+  //   x: 25, y: 7, made: 68, attempts: 80, z: 1.0
+  // },
+  // {
+  //   x: 25, y: 6, made: 82, attempts: 98, z: 0.58
+  // },
+  // {
+  //   x: 25, y: 31, made: 1, attempts: 8, z: -0.59
+  // },
+  // {
+  //   x: 25, y: 8, made: 18, attempts: 26, z: 0.52
+  // },
+  // {
+  //   x: 25, y: 9, made: 1, attempts: 3, z: -0.43
+  // },
+  // {
+  //   x: 25, y: 11, made: 5, attempts: 5, z: 1.58
+  // },
+  // {
+  //   x: 25, y: 5, made: 6, attempts: 6, z: 0.82
+  // },
+  // {
+  //   x: 25, y: 28, made: 0, attempts: 1, z: -0.88
+  // },
+  // {
+  //   x: 25, y: 15, made: 2, attempts: 2, z: 1.49
+  // },
+  // {
+  //   x: 25, y: 21, made: 1, attempts: 2, z: 0.23
+  // },
+  // {
+  //   x: 25, y: 12, made: 2, attempts: 2, z: 1.61
+  // },
+  // {
+  //   x: 25, y: 10, made: 2, attempts: 3, z: 0.82
+  // },
+  // {
+  //   x: 25, y: 32, made: 1, attempts: 2, z: 0.15
+  // },
+  // {
+  //   x: 25, y: 18, made: 1, attempts: 2, z: 0.14
+  // },
+  // {
+  //   x: 25, y: 25, made: 1, attempts: 1, z: 1.36
+  // },
+  // {
+  //   x: 25, y: 14, made: 1, attempts: 2, z: 0.24
+  // },
+  // {
+  //   x: 25, y: 13, made: 0, attempts: 1, z: -1.05
+  // },
+  // {
+  //   x: 25, y: 30, made: 0, attempts: 1, z: -0.85
+  // },
+  // {
+  //   x: 25, y: 22, made: 0, attempts: 1, z: -0.82
+  // },
+  // {
+  //   x: 32, y: 10, made: 3, attempts: 5, z: 0.64
+  // },
+  // {
+  //   x: 32, y: 25, made: 1, attempts: 2, z: 0.17
+  // },
+  // {
+  //   x: 32, y: 15, made: 1, attempts: 2, z: 0.25
+  // },
+  // {
+  //   x: 32, y: 32, made: 0, attempts: 1, z: -0.78
+  // },
+  // {
+  //   x: 32, y: 6, made: 0, attempts: 1, z: -0.83
+  // },
+  // {
+  //   x: 32, y: 9, made: 0, attempts: 1, z: -0.96
+  // },
+  // {
+  //   x: 32, y: 14, made: 0, attempts: 1, z: -0.93
+  // },
+  // {
+  //   x: 32, y: 23, made: 1, attempts: 1, z: 1.12
+  // },
+  // {
+  //   x: 32, y: 30, made: 0, attempts: 2, z: -0.85
+  // },
+  // {
+  //   x: 32, y: 16, made: 0, attempts: 1, z: -0.81
+  // },
+  // {
+  //   x: 32, y: 19, made: 1, attempts: 1, z: 1.02
+  // },
+  // {
+  //   x: 32, y: 29, made: 0, attempts: 1, z: -0.76
+  // },
+  // {
+  //   x: 32, y: 12, made: 1, attempts: 1, z: 1.24
+  // },
+  // {
+  //   x: 32, y: 33, made: 0, attempts: 1, z: -1.0
+  // },
+  // {
+  //   x: 8, y: 25, made: 2, attempts: 5, z: 0.18
+  // },
+  // {
+  //   x: 8, y: 4, made: 0, attempts: 1, z: -0.82
+  // },
+  // {
+  //   x: 8, y: 9, made: 0, attempts: 2, z: -0.94
+  // },
+  // {
+  //   x: 8, y: 6, made: 1, attempts: 1, z: 1.47
+  // },
+  // {
+  //   x: 8, y: 15, made: 0, attempts: 3, z: -0.83
+  // },
+  // {
+  //   x: 8, y: 18, made: 2, attempts: 3, z: 0.37
+  // },
+  // {
+  //   x: 8, y: 24, made: 1, attempts: 1, z: 1.58
+  // },
+  // {
+  //   x: 8, y: 19, made: 1, attempts: 1, z: 1.29
+  // },
+  // {
+  //   x: 8, y: 38, made: 0, attempts: 1, z: 0.0
+  // },
+  // {
+  //   x: 8, y: 8, made: 1, attempts: 1, z: 1.18
+  // }
   // { x: 8, y: 27, made: 1, attempts: 2, z: 0.54 },
   // { x: 8, y: 20, made: 0, attempts: 1, z: -0.61 },
   // { x: 19, y: 10, made: 0, attempts: 1, z: -0.82 },

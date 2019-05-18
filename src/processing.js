@@ -1,4 +1,4 @@
-// import fs from "fs";
+// const fs = require('fs');
 import { test } from "../static/player_data/2018-19";
 
 const myData = [];
@@ -12,7 +12,7 @@ const myCoords = (x, y) => {
 
 export const processing = () => {
   const rawData = test.resultSets[0].rowSet;
-  // debugger;
+
   rawData.forEach(shotAttempt => {
     let convertedCoords = myCoords(shotAttempt[17], shotAttempt[18]);
     let x = convertedCoords[0];

@@ -30,7 +30,8 @@
       </div>
       <div class="slidecontainer">
         Season
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+        <input type="range" min=2015 max=2018 step=1 id="year" value=2015 oninput="selected_year.value = year.value">
+        <output name="selected_year" id="selected_year">2015</output>
       </div>
       <button class='update-me' id='whatever'>Submit</button>
     </div>

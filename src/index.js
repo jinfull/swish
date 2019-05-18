@@ -13,7 +13,9 @@ let showChart = (data) => {
     .append("svg")
     .chart("BasketballShotChart", {
       width: 700,
-      title: "Nikola Jokić 2018-19",
+      title: (d) => {
+        return '';
+      },
       hexagonFillValue: function (d) {
         return d.z;
       },
@@ -35,6 +37,8 @@ let showChart = (data) => {
       hexagonRadiusThreshold: 0
     })
     .draw(data);
+  debugger
+  container.append("div").attr('class', 'yolo').text(data[0].x);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,45 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
   //   .then(data => {
   //     console.log(data);
   //   });
-  showChart(data);
+  showChart(dataTwo);
+
+  let slider = d3.select('#year');
+  slider.on('change', function () {
+    showChart(this.value);
+  });
 
 
-  const submitButton = document.getElementById('whatever');
-  // debugger
-  submitButton.addEventListener("click", (e) => {
+  const yearSlider = document.getElementById('year');
+  yearSlider.addEventListener("change", (e) => {
+    console.log(e)
+
     e.preventDefault();
-    showChart(dataTwo);
+
+    showChart(data);
   });
 });
-
-
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   d3.select(document.getElementById("chart"))
-//     .append("svg")
-//     .chart("BasketballShotChart", {
-//       width: 700,
-//       title: "Nikola Jokić 2018-19",
-//       hexagonFillValue: function (d) {
-//         return d.z;
-//       },
-//       // reverse the heat range to map our z values to other colors
-//       heatScale: d3.scale
-//         .quantile()
-//         .domain([-2.5, 2.5])
-//         .range(["#5458A2", "#6689BB", "#FADC97", "#F08460", "#B02B48"]),
-//       hexagonBin: function (point, bin) {
-//         var currentZ = bin.z || 0;
-//         var totalAttempts = bin.attempts || 0;
-//         var totalZ = currentZ * totalAttempts;
-
-//         var attempts = point.attempts || 1;
-//         bin.attempts = totalAttempts + attempts;
-//         bin.z = (totalZ + point.z * attempts) / bin.attempts;
-//       },
-//       // update radius threshold to at least 4 shots to clean up the chart
-//       hexagonRadiusThreshold: 0
-//     })
-//     .draw(data);
-// });
