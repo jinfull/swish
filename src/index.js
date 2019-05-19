@@ -44,8 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
   //     console.log(data);
   //   });
   // console.log(data);
-  console.log(ericFormat[0]["Nikola Jokic"]["2015"])
-  showChart(ericFormat[0]["Nikola Jokic"]["2016"]);
+
+  console.log(ericFormat[0]["LeBron James"]["2003"]);
+  showChart(ericFormat[0]["LeBron James"]["2003"]);
+
+
+
+
 
   // let slider = d3.select('#year');
   // slider.on('change', function () {
