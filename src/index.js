@@ -1,12 +1,15 @@
 import { data } from "../static/test_data";
 import { dataTwo } from "../static/test_data_two";
 import { ericFormat } from '../static/eric';
+import { emptyDataSet } from '../static/empty';
 
 // import { playerShotChart } from './test';
 
+const allPlayers = Object.keys(ericFormat[0]).sort();
+
 let showChart = (datum) => {
   const container = d3.select(".chart-container");
-  // container.select('#chart').remove();
+  container.select('#chart').remove();
   container.append("div").attr("id", "chart")
     .append("svg")
     .chart("BasketballShotChart", {
@@ -39,15 +42,63 @@ let showChart = (datum) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // d3.json("/src/test_data.json")
-  //   .then(data => {
-  //     console.log(data);
+
+  // let options = d3.select("#dropdown")
+  //   .selectAll("option")
+  //   .data(ericFormat)
+  //   .enter()
+  //   .append("option");
+
+  // allPlayers.forEach(player => {
+  //   console.log(player);
+  //   options.append("option")
+  //     .text(player)
+  //     .attr('value', player);
+  // });
+
+
+  // for (let i = 0; i < allPlayers.length; i++) {
+  //   options.text(function (d) {
+  //     return Object.keys(d)[i];
+  //   }).attr('value', function (d) {
+  //     return allPlayers[i];
   //   });
-  // console.log(data);
+  // }
 
-  console.log(ericFormat[0]["LeBron James"]["2003"]);
-  showChart(ericFormat[0]["LeBron James"]["2003"]);
+  const container = d3.select('.chart-container');
 
+
+
+  const select = document.getElementById("dropdown");
+
+  for (var i = 0; i < allPlayers.length; i++) {
+    var opt = allPlayers[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    // if (i === 0) { el.selected = 'selected'; }
+    select.appendChild(el);
+  }
+
+  // always initialize page with empty data (null set)
+  showChart(emptyDataSet);
+
+
+  // sample data call
+  // console.log(ericFormat[0]["LeBron James"]["2003"]);
+  // showChart(ericFormat[0]["LeBron James"]["2003"]);
+
+
+
+  let playerDropdown = d3.select("#dropdown").data(ericFormat);
+  console.log(playerDropdown);
+  playerDropdown.on('change', function (d) {
+    let newPlayer = d3.select(this).property('value');
+    let minYear = Object.keys(d[newPlayer])[0];
+    console.log(minYear);
+    // debugger
+    showChart(d[newPlayer][minYear]);
+  });
 
 
 
