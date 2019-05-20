@@ -2,9 +2,9 @@
 
 // const myData = [];
 
-// const myCoords = (x, y) => {
-//   return [Math.floor(-(x / 10) + 25), Math.floor(y / 10 + 5)];
-// };
+const myCoords = (x, y) => {
+  return [Math.floor(-(x / 10) + 25), Math.floor(y / 10 + 5)];
+};
 
 // export const processing = () => {
 //   const rawData = test.resultSets[0].rowSet;
