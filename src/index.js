@@ -1,13 +1,11 @@
-import { data } from "../static/test_data";
-import { dataTwo } from "../static/test_data_two";
-import { ericFormat } from '../static/eric';
+import { myData } from '../static/data';
 import { emptyDataSet } from '../static/empty';
 
 // import { playerShotChart } from './test';
 
-const allPlayers = Object.keys(ericFormat[0]).sort();
+const allPlayers = Object.keys(myData[0]).sort();
 
-let showChart = (datum) => {
+let showChart = (data) => {
   const container = d3.select(".chart-container");
   container.select('#chart').remove();
   container.append("div").attr("id", "chart")
@@ -37,7 +35,7 @@ let showChart = (datum) => {
       // update radius threshold to at least 4 shots to clean up the chart
       hexagonRadiusThreshold: 1
     })
-    .draw(datum);
+    .draw(data);
   // container.append("div").attr('class', 'yolo').text(data[0].x);
 };
 
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // }
 
-  const container = d3.select('.chart-container');
+  // const container = d3.select('.chart-container');
 
 
 
@@ -84,29 +82,34 @@ document.addEventListener("DOMContentLoaded", () => {
   showChart(emptyDataSet);
 
 
-  // sample data call
+  // sample charting of data
   // console.log(ericFormat[0]["LeBron James"]["2003"]);
   // showChart(ericFormat[0]["LeBron James"]["2003"]);
 
+  const playerDropdown = d3.select("#dropdown").data(myData);
+  const slider = d3.select("#year").data(myData);
 
-
-  let playerDropdown = d3.select("#dropdown").data(ericFormat);
-  console.log(playerDropdown);
   playerDropdown.on('change', function (d) {
     let newPlayer = d3.select(this).property('value');
     let minYear = Object.keys(d[newPlayer])[0];
-    console.log(minYear);
-    // debugger
+    let maxYear = Object.keys(d[newPlayer]).reverse()[0];
+
     showChart(d[newPlayer][minYear]);
+
+    console.log(maxYear);
+
+    slider.attr('min', minYear)
+      .attr('max', maxYear)
+      .attr('value', minYear);
   });
 
+  // if (playerDropdown.property('value') === 'Select Player:') { slider.attr('disabled', 'true'); return; }
+  // slider.attr('disabled', 'false');
 
-
-
-  // let slider = d3.select('#year');
-  // slider.on('change', function () {
-  //   showChart(this.value);
-  // });
+  slider.on('change', function (d) {
+    const currPlayer = playerDropdown.property('value');
+    showChart(d[currPlayer][this.value]);
+  });
 
   // const yearSlider = document.getElementById('year');
   // yearSlider.addEventListener("change", (e) => {
