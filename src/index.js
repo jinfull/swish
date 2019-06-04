@@ -1,6 +1,9 @@
 import { myData } from '../static/data';
 import { emptyDataSet } from '../static/empty';
 
+
+
+
 // import { playerShotChart } from './test';
 
 const allPlayers = Object.keys(myData[0]).sort();
@@ -40,6 +43,20 @@ let showChart = (data) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  var rangeSlider = document.getElementById("rs-range-line");
+  var rangeBullet = document.getElementById("rs-bullet");
+
+  rangeSlider.addEventListener("input", showSliderValue, false);
+
+  function showSliderValue() {
+    rangeBullet.innerHTML = rangeSlider.value;
+    var bulletPosition = (rangeSlider.value / rangeSlider.max);
+    rangeBullet.style.left = (bulletPosition * 578) + "px";
+  }
+
+
+
 
   // let options = d3.select("#dropdown")
   //   .selectAll("option")
@@ -87,7 +104,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // showChart(ericFormat[0]["LeBron James"]["2003"]);
 
   const playerDropdown = d3.select("#dropdown").data(myData);
-  const slider = d3.select("#year").data(myData);
+  const slider = d3.select("#rs-range-line").data(myData);
+  // const minMax = d3.select(".box-minmax").data(myData);
+
+  // const min = minMax.selectAll('span')[0];
+  // const max = minMax.selectAll('span')[1];
+
+  const spanMin = document.getElementById("span-min");
+  const spanMax = document.getElementById("span-max");
+
 
   playerDropdown.on('change', function (d) {
     let newPlayer = d3.select(this).property('value');
@@ -96,11 +121,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showChart(d[newPlayer][minYear]);
 
-    console.log(maxYear);
-
     slider.attr('min', minYear)
       .attr('max', maxYear)
       .attr('value', minYear);
+
+    console.log(slider);
+
+    spanMin.innerHTML = minYear;
+    spanMax.innerHTML = maxYear;
+
+    rangeBullet.innerHTML = minYear;
   });
 
   // if (playerDropdown.property('value') === 'Select Player:') { slider.attr('disabled', 'true'); return; }

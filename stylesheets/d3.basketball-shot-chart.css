@@ -48,7 +48,7 @@ svg {
 }
 
 #chart {
-  margin-right: 68px;
+  /* margin-right: 68px; */
 }
 
 .slider {
@@ -84,6 +84,8 @@ svg {
 .slidecontainer {
   font-family: Arial, sans-serif;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 #myRange {
@@ -104,7 +106,9 @@ svg {
 
 .chart-container {
   height: 90%;
-  margin-right: 80px;
+  /* margin-right: 80px; */
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #chart {

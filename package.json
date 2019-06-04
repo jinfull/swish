@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch --mode=development",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "compile:sass": "node-sass stylesheets/slider.scss stylesheets/main.css"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,9 @@
     "d3": "^5.9.2",
     "d3.chart": "^0.3.0",
     "file-system": "^2.2.2",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.12.0"
   },
   "devDependencies": {
     "@types/node": "^12.0.2"
