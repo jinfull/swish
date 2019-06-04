@@ -44,19 +44,25 @@ let showChart = (data) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  var id = setInterval(() => {
+    // console.log(rangeSlider);
+    if (rangeSlider.value < rangeSlider.max) {
+      rangeSlider.value++;
+      // console.log(rangeSlider.value);
+      const currPlayer = playerDropdown.property('value');
+      showChart(myData[0][currPlayer][rangeSlider.value]);
+      rangeBullet.innerHTML = rangeSlider.value;
+      showSliderValue();
+    }
+  }, 1500);
+
+
   var rangeSlider = document.getElementById("rs-range-line");
   var rangeBullet = document.getElementById("rs-bullet");
 
   rangeSlider.addEventListener("input", showSliderValue, false);
 
-  function showSliderValue() {
-    rangeBullet.innerHTML = rangeSlider.value;
-    var bulletPosition = (rangeSlider.value / rangeSlider.max);
-    rangeBullet.style.left = (bulletPosition * 578) + "px";
-  }
-
-
-
+  const randPlayer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
 
   // let options = d3.select("#dropdown")
   //   .selectAll("option")
@@ -113,33 +119,92 @@ document.addEventListener("DOMContentLoaded", () => {
   const spanMin = document.getElementById("span-min");
   const spanMax = document.getElementById("span-max");
 
+  // console.log(randPlayer);
+  // console.log(Object.keys(myData[0][randPlayer])[0]);
+
+  // console.log(Object.keys(myData[0][randPlayer]).reverse()[0])
+  var minYear = Object.keys(myData[0][randPlayer])[0];
+  var maxYear = Object.keys(myData[0][randPlayer]).reverse()[0];
+
 
   playerDropdown.on('change', function (d) {
+
+    
     let newPlayer = d3.select(this).property('value');
-    let minYear = Object.keys(d[newPlayer])[0];
-    let maxYear = Object.keys(d[newPlayer]).reverse()[0];
-
+    minYear = Object.keys(d[newPlayer])[0];
+    maxYear = Object.keys(d[newPlayer]).reverse()[0];
+    
     showChart(d[newPlayer][minYear]);
-
+    
     slider.attr('min', minYear)
-      .attr('max', maxYear)
-      .attr('value', minYear);
-
-    console.log(slider);
-
+    .attr('max', maxYear)
+    .attr('value', minYear);
+    
+    // console.log(slider);
+    
     spanMin.innerHTML = minYear;
     spanMax.innerHTML = maxYear;
-
+    
     rangeBullet.innerHTML = minYear;
+
+    // rangeBullet.style.left = "0px";
+
+    id = setInterval(() => {
+      if (rangeSlider.value < rangeSlider.max) {
+        rangeSlider.value++;
+        const currPlayer = playerDropdown.property('value');
+        showChart(myData[0][currPlayer][rangeSlider.value]);
+        rangeBullet.innerHTML = rangeSlider.value;
+        showSliderValue();
+      }
+    }, 1500);
   });
+
+  playerDropdown.property('value', randPlayer);
+  rangeBullet.innerHTML = minYear;
+  showChart(myData[0][randPlayer][minYear]);
+
+  slider.attr('min', minYear)
+    .attr('max', maxYear)
+    .attr('value', minYear);
+
+  spanMin.innerHTML = minYear;
+  spanMax.innerHTML = maxYear;
+
+  rangeBullet.innerHTML = minYear;
+
+  
+  function showSliderValue() {
+    rangeBullet.innerHTML = rangeSlider.value;    
+
+    const range = maxYear - minYear;
+
+    var bulletPosition = (rangeSlider.value - minYear) / range;
+    // console.log(bulletPosition);
+
+    rangeBullet.style.left = (bulletPosition * 578) + "px";
+  }
+
 
   // if (playerDropdown.property('value') === 'Select Player:') { slider.attr('disabled', 'true'); return; }
   // slider.attr('disabled', 'false');
 
   slider.on('change', function (d) {
+    clearInterval(id);
     const currPlayer = playerDropdown.property('value');
     showChart(d[currPlayer][this.value]);
   });
+
+
+
+
+
+  // console.log(myData);
+  const blahBlah = () => {
+
+  }
+
+
 
   // const yearSlider = document.getElementById('year');
   // yearSlider.addEventListener("change", (e) => {
@@ -149,4 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //   showChart(dataTwo);
   // });
+
+
+
 });
