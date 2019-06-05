@@ -1,8 +1,5 @@
 import { myData } from '../static/data';
 import { apiKey, cx } from '../config/keys';
-import { emptyDataSet } from '../static/empty';
-
-// import { playerShotChart } from './test';
 
 const allPlayers = Object.keys(myData[0]).sort();
 
@@ -150,9 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function search(playerName) {
-    // const cx = '008476829359383691197:j_4omxrzugs'; // your search engine id 
-    // const apiKey = 'AIzaSyAtCWgMuXcPpOskKjxsxtjt4WPGJHUhh5g'; // your api key
-
     /* select the input element */
     let playerImgDiv = d3.select('#playerImg');
 
