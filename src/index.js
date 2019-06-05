@@ -38,7 +38,7 @@ let showChart = (data) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // clearInterval(id);
+
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
       rangeSlider.value++;
