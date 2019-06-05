@@ -97,11 +97,10 @@ svg {
 }
 
 #dropdown {
-  width: 100%;
-}
-
-#dropdown {
+  width: 100%;  
   margin-top: 15px;
+  /* padding: 20px; */
+  font-size: 32px;
 }
 
 .chart-container {
@@ -113,4 +112,24 @@ svg {
 
 #chart {
   height: 100%;
+}
+/* select {
+    padding: 2px 10px;
+    border: 1px solid #979997;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+} */
+
+select option {
+  justify-content: center;
 }

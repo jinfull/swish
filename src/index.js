@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const randPlayer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
 
-  // const container = d3.select('.chart-container');
-
 
 
   const select = document.getElementById("dropdown");
@@ -97,9 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     maxYear = Object.keys(d[newPlayer]).reverse()[0];
     
     showChart(d[newPlayer][minYear]);
-    
-    console.log(slider[0][0].value);
-
 
     slider.property('min', minYear)
     .property('max', maxYear)
@@ -152,15 +147,4 @@ document.addEventListener("DOMContentLoaded", () => {
     showChart(d[currPlayer][this.value]);
     clearInterval(id);
   });
-
-
-
-
-
-  // const blahBlah = () => {
-
-  // }
-
-
-
 });
