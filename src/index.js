@@ -154,6 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
+      if (!result.items) {
+        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+          result = JSON.parse(text);
+        });
+      }
+
+      if (!result.items) {
+        playerImgDiv.attr("src", "assets/stern.jpg");
+        return;
+      }
 
       const myRand = Math.floor(Math.random() * 10);
 
