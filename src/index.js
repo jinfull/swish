@@ -1,8 +1,6 @@
 import { myData } from '../static/data';
+import { apiKey, cx } from '../config/keys';
 import { emptyDataSet } from '../static/empty';
-
-
-
 
 // import { playerShotChart } from './test';
 
@@ -147,4 +145,32 @@ document.addEventListener("DOMContentLoaded", () => {
     showChart(d[currPlayer][this.value]);
     clearInterval(id);
   });
+
+
+  function search(playerName) {
+    // const cx = '008476829359383691197:j_4omxrzugs'; // your search engine id 
+    // const apiKey = 'AIzaSyAtCWgMuXcPpOskKjxsxtjt4WPGJHUhh5g'; // your api key
+
+    /* select the input element */
+    let playerImgDiv = d3.select('#playerImg');
+
+    /* fetch the following URL that includes apikey, cx and the value of input */
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+      let result = JSON.parse(text);
+
+      const myRand = Math.floor(Math.random() * 10);
+
+      let myImageSrc = result.items[myRand].pagemap.cse_image[0].src;
+      console.log(myImageSrc);
+      console.log(playerImgDiv);
+
+      playerImgDiv.attr("src", myImageSrc);
+
+
+      // playerImgDiv.property(`<img src=${myImageSrc} class="contentimg">`);
+    });
+  }
+
+  search('jokic');
+
 });

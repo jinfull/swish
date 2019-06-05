@@ -81,11 +81,15 @@ svg {
   background: #4CAF50; /* Green background */
 }
 
+
 .slidecontainer {
   font-family: Arial, sans-serif;
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  /* margin-left: 50px; */
 }
 
 #myRange {
@@ -105,7 +109,7 @@ svg {
 
 .chart-container {
   height: 90%;
-  /* margin-right: 80px; */
+  margin-right: 180px;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -132,4 +136,13 @@ svg {
 
 select option {
   justify-content: center;
+}
+
+#playerImg {
+  height: 300px;
+  width: 400px;
+  max-height: 100%;
+  max-width: 100%;
+  margin-top: 50px;
+  border-radius: 5%;
 }
