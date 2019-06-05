@@ -89,6 +89,7 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
   /* margin-left: 50px; */
 }
 
@@ -104,12 +105,13 @@ svg {
   width: 100%;  
   margin-top: 15px;
   /* padding: 20px; */
-  font-size: 32px;
+  font-size: 26px;
 }
 
 .chart-container {
-  height: 90%;
-  margin-right: 180px;
+  height: 100%;
+  width: inherit;
+  margin-right: 80px;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -140,7 +142,7 @@ select option {
 
 #playerImg {
   height: 300px;
-  width: 400px;
+  width: 300px;
   max-height: 100%;
   max-width: 100%;
   margin-top: 50px;

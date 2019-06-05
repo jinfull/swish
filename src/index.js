@@ -9,7 +9,7 @@ let showChart = (data) => {
   container.append("div").attr("id", "chart")
     .append("svg")
     .chart("BasketballShotChart", {
-      width: 700,
+      width: 800,
       title: (d) => {
         return '';
       },
@@ -154,16 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
-      console.log(result);
 
       const myRand = Math.floor(Math.random() * 10);
 
       let myImageSrc = result.items[0].pagemap.cse_image[0].src;
-      console.log(myImageSrc);
-      console.log(playerImgDiv);
 
       playerImgDiv.attr("src", myImageSrc);
-
 
       // playerImgDiv.property(`<img src=${myImageSrc} class="contentimg">`);
     });
