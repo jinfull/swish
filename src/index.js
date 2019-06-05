@@ -43,7 +43,7 @@ let showChart = (data) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  // clearInterval(id);
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
       rangeSlider.value++;
@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var el = document.createElement("option");
     el.textContent = opt;
     el.value = opt;
-    // if (i === 0) { el.selected = 'selected'; }
     select.appendChild(el);
   }
 
@@ -92,24 +91,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   playerDropdown.on('change', function (d) {
+    clearInterval(id);
     let newPlayer = d3.select(this).property('value');
     minYear = Object.keys(d[newPlayer])[0];
     maxYear = Object.keys(d[newPlayer]).reverse()[0];
     
     showChart(d[newPlayer][minYear]);
     
-    slider.attr('min', minYear)
-    .attr('max', maxYear)
-    .attr('value', minYear);
-    
-    // console.log(slider);
+    console.log(slider[0][0].value);
+
+
+    slider.property('min', minYear)
+    .property('max', maxYear)
+    .property('value', minYear);
     
     spanMin.innerHTML = minYear;
     spanMax.innerHTML = maxYear;
     
     rangeBullet.innerHTML = minYear;
 
-    // rangeBullet.style.left = "0px";
+    rangeBullet.style.left = "0px";
 
     id = setInterval(() => {
       if (rangeSlider.value < rangeSlider.max) {
@@ -142,15 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const range = maxYear - minYear;
 
     var bulletPosition = (rangeSlider.value - minYear) / range;
-    // console.log(bulletPosition);
 
     rangeBullet.style.left = (bulletPosition * 578) + "px";
   }
 
   slider.on('change', function (d) {
-    clearInterval(id);
     const currPlayer = playerDropdown.property('value');
     showChart(d[currPlayer][this.value]);
+    clearInterval(id);
   });
 
 
