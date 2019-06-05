@@ -89,6 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
   playerDropdown.on('change', function (d) {
     clearInterval(id);
     let newPlayer = d3.select(this).property('value');
+
+    search(newPlayer);
     minYear = Object.keys(d[newPlayer])[0];
     maxYear = Object.keys(d[newPlayer]).reverse()[0];
     
@@ -171,6 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  search('jokic');
+  search(randPlayer);
 
 });
