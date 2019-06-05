@@ -1,3 +1,7 @@
+/* body {
+
+} */
+
 .shot-chart-court * {
   fill: transparent;
   stroke: #333;
@@ -89,7 +93,7 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  /* padding-top: 15px; */
   /* margin-left: 50px; */
 }
 
@@ -147,4 +151,5 @@ select option {
   max-width: 100%;
   margin-top: 50px;
   border-radius: 5%;
+  border: none;
 }

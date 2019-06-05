@@ -39,7 +39,7 @@
     }
     &::-webkit-slider-runnable-track {
         width: 100%;
-        height: 3px;
+        height: 5px;
         cursor: pointer;
         box-shadow: none;
         background: #000000;
@@ -67,6 +67,7 @@
         cursor: pointer;
         -webkit-appearance: none;
         margin-top: -20px;
+        border: 1.5px solid black;
     }
   &::-moz-range-thumb{
         box-shadow: none;
