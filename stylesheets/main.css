@@ -94,3 +94,11 @@
     font-size: 16px;
     letter-spacing: 0.07em;
     margin-top: -2px; }
+
+#logo {
+  background-image: image-url("assets/swish.png");
+  height: 112px;
+  width: 300px; 
+  margin-bottom: 50px;
+  padding-top: 100px;
+}
