@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let playerImgDiv = d3.select('#playerImg');
 
     /* fetch the following URL that includes apikey, cx and the value of input */
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+      fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
       const myRand = Math.floor(Math.random() * 10);
