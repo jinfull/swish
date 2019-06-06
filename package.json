@@ -22,6 +22,7 @@
   "homepage": "https://github.com/jinfull/nba#readme",
   "main": "main.js",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "d3": "^5.9.2",
     "d3.chart": "^0.3.0",
     "file-system": "^2.2.2",

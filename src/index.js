@@ -10,9 +10,9 @@ let showChart = (data) => {
     .append("svg")
     .chart("BasketballShotChart", {
       width: 800,
-      title: (d) => {
-        return '';
-      },
+      // title: (d) => {
+      //   return '';
+      // },
       hexagonFillValue: function (d) {
         return d.z;
       },
@@ -33,12 +33,46 @@ let showChart = (data) => {
       // update radius threshold to at least 4 shots to clean up the chart
       hexagonRadiusThreshold: 2
     })
-    .draw(data);
-  // container.append("div").attr('class', 'yolo').text(data[0].x);
+    .draw(data);    
+
+    var currHexagons = d3.selectAll(".shot-chart-hexagon");
+    // var nextHexagons;
+
+    // var myHexagons = d3.selectAll(".shot-chart-hexagon")
+    //   .data(data)
+    //   .transition().duration(1000)
+    //     .style("fill", function (d) { 
+    //     // console.log(d)
+    //     return (d.z); 
+    //   });
+
+    currHexagons.style("opacity", "0");
+
+
+    currHexagons
+      .data(data)
+      .transition().duration(1000)
+      .style("opacity", "1")
+      .style("fill", function (d) {
+        return (d.z); 
+      })
+      .transition().duration(1000)
+      .style("opacity", "0");
+
+
+    // nextHexagons
+    //   .data(data2)
+    //   .transition().duration(1000)
+    //   .style("opacity", "0")
+    //   .style("fill", function (d) {
+    //     return (d.z);
+    //   });
+    
 };
 
-document.addEventListener("DOMContentLoaded", () => {
 
+
+document.addEventListener("DOMContentLoaded", () => {
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
       rangeSlider.value++;
@@ -47,7 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
       rangeBullet.innerHTML = rangeSlider.value;
       showSliderValue();
     }
-  }, 1500);
+  }, 2500);
+
+  let currHexagons = d3.selectAll(".shot-chart-hexagon");
+  // console.log(currHexagons);
 
 
   var rangeSlider = document.getElementById("rs-range-line");
@@ -86,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   playerDropdown.on('change', function (d) {
     clearInterval(id);
     let newPlayer = d3.select(this).property('value');
+    
 
     search(newPlayer);
     minYear = Object.keys(d[newPlayer])[0];
@@ -108,11 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (rangeSlider.value < rangeSlider.max) {
         rangeSlider.value++;
         const currPlayer = playerDropdown.property('value');
-        showChart(myData[0][currPlayer][rangeSlider.value]);
+        showChart(myData[0][currPlayer][rangeSlider.value], rangeSlider.value);
         rangeBullet.innerHTML = rangeSlider.value;
         showSliderValue();
       }
-    }, 1500);
+    }, 2500);
   });
 
   playerDropdown.property('value', randPlayer);
@@ -150,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* select the input element */
     let playerImgDiv = d3.select('#playerImg');
 
-    /* fetch the following URL that includes apikey, cx and the value of input */
+    // /* fetch the following URL that includes apikey, cx and the value of input */
       fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
@@ -170,8 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
       playerImgDiv.attr("src", myImageSrc);
-
-      // playerImgDiv.property(`<img src=${myImageSrc} class="contentimg">`);
     });
   }
 

@@ -327,6 +327,7 @@
                 if (val > 0) return hexbin.hexagon(val); 
               })
               .style('fill', function(d) { 
+                // console.log(heatScale(hexagonFillValue(d)));
                 return heatScale(hexagonFillValue(d)); 
               });
           },
@@ -422,7 +423,7 @@
     // distance of corner three point line from basket (ft)
     threePointSideRadius: 22, 
     // title of chart
-    title: 'Shot chart',
+    title: '',
     // method to determine x position of a bin on the court
     translateX: function (d) { return d.x; },
     // method to determine y position of a bin on the court
