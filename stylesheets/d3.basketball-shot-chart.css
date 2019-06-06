@@ -149,8 +149,16 @@ select option {
   width: 300px;
   max-height: 100%;
   max-width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 5%;
   border: none;
 }
 
+
+#logo {
+  background-image: image-url("assets/swish.png");
+  height: 112px;
+  width: 300px; 
+  margin-bottom: 40px;
+  padding-top: 100px;
+}
