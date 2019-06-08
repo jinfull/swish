@@ -56,8 +56,8 @@ let showChart = (data) => {
       .style("fill", function (d) {
         return (d.z); 
       })
-      .transition().duration(1000)
-      .style("opacity", "0");
+      .transition().duration(300)
+      .style("opacity", ".75");
 
 
     // nextHexagons
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       rangeBullet.innerHTML = rangeSlider.value;
       showSliderValue();
     }
-  }, 2500);
+  }, 1500);
 
   let currHexagons = d3.selectAll(".shot-chart-hexagon");
   // console.log(currHexagons);
@@ -146,11 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (rangeSlider.value < rangeSlider.max) {
         rangeSlider.value++;
         const currPlayer = playerDropdown.property('value');
-        showChart(myData[0][currPlayer][rangeSlider.value], rangeSlider.value);
+        showChart(myData[0][currPlayer][rangeSlider.value]);
         rangeBullet.innerHTML = rangeSlider.value;
         showSliderValue();
       }
-    }, 2500);
+    }, 1500);
   });
 
   playerDropdown.property('value', randPlayer);
@@ -185,30 +185,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function search(playerName) {
-    /* select the input element */
-    let playerImgDiv = d3.select('#playerImg');
+    // /* select the input element */
+    // let playerImgDiv = d3.select('#playerImg');
 
-    // /* fetch the following URL that includes apikey, cx and the value of input */
-      fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-      let result = JSON.parse(text);
+    // // /* fetch the following URL that includes apikey, cx and the value of input */
+    //   fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+    //   let result = JSON.parse(text);
 
-      if (!result.items) {
-        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-          result = JSON.parse(text);
-        });
-      }
+    //   if (!result.items) {
+    //     fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+    //       result = JSON.parse(text);
+    //     });
+    //   }
 
-      if (!result.items) {
-        playerImgDiv.attr("src", "assets/stern.jpg");
-        return;
-      }
+    //   if (!result.items) {
+    //     playerImgDiv.attr("src", "assets/stern.jpg");
+    //     return;
+    //   }
 
-      const myRand = Math.floor(Math.random() * 10);
+    //   const myRand = Math.floor(Math.random() * 10);
 
-      let myImageSrc = result.items[0].pagemap.cse_image[0].src;
+    //   let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
-      playerImgDiv.attr("src", myImageSrc);
-    });
+    //   playerImgDiv.attr("src", myImageSrc);
+    // });
   }
 
   search(randPlayer);
