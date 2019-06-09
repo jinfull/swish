@@ -185,30 +185,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function search(playerName) {
-    // /* select the input element */
-    // let playerImgDiv = d3.select('#playerImg');
+    /* select the input element */
+    let playerImgDiv = d3.select('#playerImg');
 
-    // // /* fetch the following URL that includes apikey, cx and the value of input */
-    //   fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-    //   let result = JSON.parse(text);
+    // /* fetch the following URL that includes apikey, cx and the value of input */
+      fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+      let result = JSON.parse(text);
 
-    //   if (!result.items) {
-    //     fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-    //       result = JSON.parse(text);
-    //     });
-    //   }
+      if (!result.items) {
+        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+          result = JSON.parse(text);
+        });
+      }
 
-    //   if (!result.items) {
-    //     playerImgDiv.attr("src", "assets/stern.jpg");
-    //     return;
-    //   }
+      if (!result.items) {
+        playerImgDiv.attr("src", "assets/stern.jpg");
+        return;
+      }
 
-    //   const myRand = Math.floor(Math.random() * 10);
+      const myRand = Math.floor(Math.random() * 10);
 
-    //   let myImageSrc = result.items[0].pagemap.cse_image[0].src;
+      let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
-    //   playerImgDiv.attr("src", myImageSrc);
-    // });
+      playerImgDiv.attr("src", myImageSrc);
+    });
   }
 
   search(randPlayer);
