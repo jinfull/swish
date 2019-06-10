@@ -44,22 +44,13 @@ An onChange listener is placed on the season slider to clear any current setInte
 
 #### Creating a custom Google Search API
 
-As a bonus MVP, I created a custom Google Search Engine to query for player images. Player images are displayed beneath the player selection dropdown and dynamically search Google and returns the top (first) image result.
+As a bonus MVP, I created and implemented a custom Google Search Engine to query for player images. Player images are displayed beneath the player selection dropdown and dynamically search Google and returns the top (first) image result.
+
+This was initially implemented to pull a random image from the first ten results, but it was found after some experimentation that the first result from Google querying ESPN.com would return a headshot photo of that specified player. 
 
 ```
     fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
-
-      if (!result.items) {
-        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-          result = JSON.parse(text);
-        });
-      }
-
-      if (!result.items) {
-        playerImgDiv.attr("src", "assets/stern.jpg");
-        return;
-      }
 
       let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
