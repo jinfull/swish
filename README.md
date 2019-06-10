@@ -13,15 +13,16 @@ Swish is a completely front-end based project relying on JavaScript and D3.js wi
 * Uses D3.js library to select, append, and chart elements from coerced data
 * Custom-built Google Search API to search and auto-populate image of selected player
 
-#### Using setInterval to Create Year-to-Year Transitions
+#### Creating Season-to-Season Transitions
 
 ![](./assets/readme/swish-gif.gif)
 
-As a bonus feature, used a series of setIntervals to be able to transition the slider automatically across the length of a player's career. On page load, a random player will be generated and the slider will move across to that player's final year. Any new selected player will also have this transition. 
+As an added feature, a series of setIntervals were used to transition the slider automatically across the length of a player's career. On page load, a random player will be generated and the slider will move across to that player's final year. Any new selected player will also have this transition. 
 
-A clearInterval is in place as well, if the user wishes to navigate him or herself through the player's career, the setInterval will be cleared and the user will then be free to navigate at his or her own pace.
+An onChange listener is placed on the season slider to clear any current setIntervals if the user wishes to manually view season-to-season changes.
 
 ```
+  // slider transitions will be triggered on initial site load or new player selected
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
       rangeSlider.value++;
@@ -33,9 +34,11 @@ A clearInterval is in place as well, if the user wishes to navigate him or herse
   }, 1500);
 ```
 ```
+  // remove setInterval transition when user manually clicks on season slider bar
   slider.on('change', function (d) {
     const currPlayer = playerDropdown.property('value');
     showChart(d[currPlayer][this.value]);
     clearInterval(id);
   });
 ```
+
