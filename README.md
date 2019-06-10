@@ -4,20 +4,20 @@
 
 Swish is a tool for tracking NBA player shot charts and how their shot selection evolves over time. 
 
-Swish is a completely front-end based project relying on JavaScript and D3.js with Python as the scripting language to generate the project's "seed" data.
+Swish is a completely front-end based project relying on JavaScript and D3.js with Python as the scripting language to generate the project's seed data.
+
+![](./assets/readme/swish-gif.gif)
 
 ## Features
 * Dynamic updating of rookie and final seasons of selected players
-* Automatic transitions highlighting year-to-year changes in player's shot chart (with onClick listener to remove transitions)
+* Automatic transitions highlighting year-to-year changes in player's shot chart
 * Uses Python to read from official NBA Stats API and output files in desired format
 * Uses D3.js library to select, append, and chart elements from coerced data
 * Custom-built Google Search API to search and auto-populate image of selected player
 
 #### Creating Season-to-Season Transitions
 
-![](./assets/readme/swish-gif.gif)
-
-As an added feature, a series of setIntervals were used to transition the slider automatically across the length of a player's career. On page load, a random player will be generated and the slider will move across to that player's final year. Any new selected player will also have this transition. 
+A series of setIntervals were used to transition the slider automatically across the length of a player's career. On page load, a random player will be generated and the slider will move across to that player's final year. Any new selected player will also have this transition. 
 
 An onChange listener is placed on the season slider to clear any current setIntervals if the user wishes to manually view season-to-season changes.
 
@@ -42,3 +42,28 @@ An onChange listener is placed on the season slider to clear any current setInte
   });
 ```
 
+#### Creating a custom Google Search API
+
+As a bonus MVP, I created a custom Google Search Engine to query for player images. Player images are displayed beneath the player selection dropdown and dynamically search Google and returns the top (first) image result.
+
+```
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+      let result = JSON.parse(text);
+
+      if (!result.items) {
+        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+          result = JSON.parse(text);
+        });
+      }
+
+      if (!result.items) {
+        playerImgDiv.attr("src", "assets/stern.jpg");
+        return;
+      }
+
+      let myImageSrc = result.items[0].pagemap.cse_image[0].src;
+
+      playerImgDiv.attr("src", myImageSrc);
+    });
+  }
+```

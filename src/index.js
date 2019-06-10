@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let playerImgDiv = d3.select('#playerImg');
 
     // /* fetch the following URL that includes apikey, cx and the value of input */
-      fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
       if (!result.items) {
@@ -202,8 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
         playerImgDiv.attr("src", "assets/stern.jpg");
         return;
       }
-
-      const myRand = Math.floor(Math.random() * 10);
 
       let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
