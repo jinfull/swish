@@ -22,7 +22,7 @@ A series of setIntervals were used to transition the slider automatically across
 An onChange listener is placed on the season slider to clear any current setIntervals if the user wishes to manually view season-to-season changes.
 
 ```
-  // slider transitions will be triggered on initial site load or new player selected
+  /* slider transitions will be triggered on initial site load or new player selected */
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
       rangeSlider.value++;
@@ -34,7 +34,7 @@ An onChange listener is placed on the season slider to clear any current setInte
   }, 1500);
 ```
 ```
-  // remove setInterval transition when user manually clicks on season slider bar
+  /* remove setInterval transition when user manually clicks on season slider bar */
   slider.on('change', function (d) {
     const currPlayer = playerDropdown.property('value');
     showChart(d[currPlayer][this.value]);
@@ -49,6 +49,11 @@ As a bonus MVP, I created and implemented a custom Google Search Engine to query
 This was initially implemented to pull a random image from the first ten results, but it was found after some experimentation that the first result from Google querying ESPN.com would return a headshot photo of that specified player. 
 
 ```
+  function search(playerName) {
+    /* select the input element */
+    let playerImgDiv = d3.select('#playerImg');
+
+    /* fetch the following URL that includes apikey, cx and the value of input (playerName from player dropdown) */
     fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
       let result = JSON.parse(text);
 
@@ -58,3 +63,19 @@ This was initially implemented to pull a random image from the first ten results
     });
   }
 ```
+
+## Technologies
+
+This project was built completely on the frontend using JavaScript/D3.js. Python was used as a supplementary piece as a scripting language to help convert source data into a readable format for this project.
+
+Additionally, a Google API was created and used to dynamically search and render images depending on the selected player.
+
+All player data for this project was stored on the front-end as a JSON object, no backend was used.
+
+## Potential Future Releases
+
+Features I would like to add:
+
+* Investigate scraping of NBA API to dynamically autofill player dropdown with ALL possible players
+* Incorporate other season-specific data (i.e. PPG, shooting splits, etc)
+* Build hover over effects on each drawn hexagon to display more specific data points
