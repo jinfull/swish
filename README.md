@@ -15,7 +15,7 @@ Swish is a completely front-end based project relying on JavaScript and D3.js wi
 
 #### Using setInterval to Create Year-to-Year Transitions
 
-![](./assets/readme/placeholder-transitions.gif)
+![](./assets/readme/swish-gif.gif)
 
 As a bonus feature, used a series of setIntervals to be able to transition the slider automatically across the length of a player's career. On page load, a random player will be generated and the slider will move across to that player's final year. Any new selected player will also have this transition. 
 
