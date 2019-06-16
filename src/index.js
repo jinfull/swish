@@ -60,7 +60,9 @@ let showChart = (data) => {
         return (d.z); 
       })
       .transition().duration(500)
-      .style("opacity", "0.75");
+      .style("opacity", "0.1")
+      .transition().duration(0)
+      .style("opacity", "1");
 
     var nextHexagons = d3.selectAll(".shot-chart-hexagon");
 
@@ -133,9 +135,6 @@ let showChartTwo = (data) => {
     })
     .transition().duration(500)
     .style("opacity", "0.75");
-
-
-
 
   // Experiment with drawing a total new chart on top
   // nextHexagons

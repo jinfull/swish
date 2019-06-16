@@ -106,7 +106,7 @@ svg {
 }
 
 #dropdown {
-  width: 100%;  
+  width: 300px;  
   margin-top: 15px;
   /* padding: 20px; */
   font-size: 26px;
@@ -158,8 +158,8 @@ select option {
 
 #logo {
   background-image: image-url("assets/swish.png");
-  height: 112px;
-  width: 300px; 
-  margin-bottom: 40px;
+  height: 168px;
+  width: 450px; 
+  margin-bottom: 75px;
   padding-top: 100px;
 }
