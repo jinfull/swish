@@ -62,7 +62,7 @@ let showChart = (data) => {
       .transition().duration(500)
       .style("opacity", "0.75");
 
-    var nextHexagons = d3.selectAll(".shot-chart-hexagon")
+    var nextHexagons = d3.selectAll(".shot-chart-hexagon");
 
 
     // Experiment with drawing a total new chart on top
@@ -80,14 +80,14 @@ let showChartTwo = (data) => {
 
 
   console.log('This is showChartTwo argument data: ' + data);
-  container.style("opacity", "0");
+  // container.style("opacity", "0");
 
-  container
-    .data(data)
-    .transition().duration(750)
-    .style("opacity", "0")
-    .transition().duration(750)
-    .style("opacity", "1");
+  // container
+  //   .data(data)
+  //   .transition().duration(750)
+  //   .style("opacity", "0")
+  //   .transition().duration(750)
+  //   .style("opacity", "1");
 
   // var idTwo = setInterval(() => container.select('#chart').remove(),1000);
 
@@ -230,9 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
         rangeBullet.innerHTML = rangeSlider.value;
         showSliderValue();
 
-        setInterval(() => {
-          showChartTwo(myData[0][currPlayer][rangeSlider.value++]);
-        }, 500);
+        // setInterval(() => {
+        //   showChartTwo(myData[0][currPlayer][rangeSlider.value++]);
+        // }, 500);
       }
     }, 1500);
   });
@@ -245,10 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showChart(myData[0][randPlayer][minYear]);
   // showChartTwo(myData[0][randPlayer][maxYear]);
-
-  setInterval(() => {
-
-  })
 
   slider.attr('min', minYear)
     .attr('max', maxYear)
@@ -278,28 +274,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function search(playerName) {
-    // /* select the input element */
-    // let playerImgDiv = d3.select('#playerImg');
+    /* select the input element */
+    let playerImgDiv = d3.select('#playerImg');
 
-    // // /* fetch the following URL that includes apikey, cx and the value of input */
-    // fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-    //   let result = JSON.parse(text);
+    // /* fetch the following URL that includes apikey, cx and the value of input */
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+      let result = JSON.parse(text);
 
-    //   if (!result.items) {
-    //     fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-    //       result = JSON.parse(text);
-    //     });
-    //   }
+      if (!result.items) {
+        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+          result = JSON.parse(text);
+        });
+      }
 
-    //   if (!result.items) {
-    //     playerImgDiv.attr("src", "assets/stern.jpg");
-    //     return;
-    //   }
+      if (!result.items) {
+        playerImgDiv.attr("src", "assets/stern.jpg");
+        return;
+      }
 
-    //   let myImageSrc = result.items[0].pagemap.cse_image[0].src;
+      let myImageSrc = result.items[0].pagemap.cse_image[0].src;
 
-    //   playerImgDiv.attr("src", myImageSrc);
-    // });
+      playerImgDiv.attr("src", myImageSrc);
+    });
   }
 
   search(randPlayer);
