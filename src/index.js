@@ -55,13 +55,21 @@ let showChart = (data) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  var id = setInterval(() => {
-    if (rangeSlider.value < rangeSlider.max) {
+  function updateChart() {
       const currPlayer = playerDropdown.property('value');
       showChart(myData[0][currPlayer][rangeSlider.value]);
-      rangeSlider.value++;
-      rangeBullet.innerHTML = rangeSlider.value;
-      showSliderValue();
+  }
+
+  function updateSlider() {
+    rangeSlider.value++;
+    rangeBullet.innerHTML = rangeSlider.value;
+    showSliderValue();
+  }
+  
+  var id = setInterval(() => {
+    if (rangeSlider.value < rangeSlider.max) {
+      updateChart();
+      updateSlider();
     }
   }, 1500);
 
@@ -74,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rangeSlider.addEventListener("input", showSliderValue, false);
 
-  const randPlayer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
+  const randPlayer = 'LeBron James';
+  console.log(randPlayer);
 
   // select dropdown and populate with list of allPlayers
   const select = document.getElementById("dropdown");
@@ -125,11 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     id = setInterval(() => {
       if (rangeSlider.value < rangeSlider.max) {
-        const currPlayer = playerDropdown.property('value');
-        showChart(myData[0][currPlayer][rangeSlider.value]);
-        rangeSlider.value++;
-        rangeBullet.innerHTML = rangeSlider.value;
-        showSliderValue();
+        updateChart();
+        updateSlider();
       }
     }, 1500);
   });
@@ -193,3 +199,4 @@ function search(playerName) {
     playerImgDiv.attr("src", myImageSrc);
   });
 };
+
