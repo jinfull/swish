@@ -6,21 +6,9 @@ const allPlayers = Object.keys(myData[0]).sort();
 let showChart = (data) => {
   const container = d3.select(".chart-container");
 
-
-  // console.log(data);
-  // container.style("opacity", "0");
-
-  // container
-  //   .data(data)
-  //   .transition().duration(750)
-  //   .style("opacity", "0")
-  //   .transition().duration(750)
-  //   .style("opacity", "1");
-
-  // var idTwo = setInterval(() => container.select('#chart').remove(),1000);
-
+  // remove previous chart
   container.select('#chart').remove();
-  
+  // draw the new chart
   container.append("div").attr("id", "chart")
     .append("svg")
     .chart("BasketballShotChart", {
@@ -37,7 +25,6 @@ let showChart = (data) => {
         var currentZ = bin.z || 0;
         var totalAttempts = bin.attempts || 0;
         var totalZ = currentZ * totalAttempts;
-
         var attempts = point.attempts || 1;
         bin.attempts = totalAttempts + attempts;
         bin.z = (totalZ + point.z * attempts) / bin.attempts;
@@ -65,98 +52,14 @@ let showChart = (data) => {
       .style("opacity", "1");
 
     var nextHexagons = d3.selectAll(".shot-chart-hexagon");
-
-
-    // Experiment with drawing a total new chart on top
-    // nextHexagons
-    //   .data(data2)
-    //   .transition().duration(1000)
-    //   .style("opacity", "0")
-    //   .style("fill", function (d) {
-    //     return (d.z);
-    //   });
 };
-
-let showChartTwo = (data) => {
-  const container = d3.select(".chart-container");
-
-
-  console.log('This is showChartTwo argument data: ' + data);
-  // container.style("opacity", "0");
-
-  // container
-  //   .data(data)
-  //   .transition().duration(750)
-  //   .style("opacity", "0")
-  //   .transition().duration(750)
-  //   .style("opacity", "1");
-
-  // var idTwo = setInterval(() => container.select('#chart').remove(),1000);
-
-  container.select('#chart').remove();
-
-  container.append("div").attr("id", "chart")
-    .append("svg")
-    .chart("BasketballShotChart", {
-      width: 800,
-      hexagonFillValue: function (d) {
-        return d.z;
-      },
-      // reverse the heat range to map our z values to other colors
-      heatScale: d3.scale
-        .quantile()
-        .domain([-2.5, 2.5])
-        .range(["#5458A2", "#6689BB", "#FADC97", "#F08460", "#B02B48"]),
-      hexagonBin: function (point, bin) {
-        var currentZ = bin.z || 0;
-        var totalAttempts = bin.attempts || 0;
-        var totalZ = currentZ * totalAttempts;
-
-        var attempts = point.attempts || 1;
-        bin.attempts = totalAttempts + attempts;
-        bin.z = (totalZ + point.z * attempts) / bin.attempts;
-      },
-      // update radius threshold to at least 4 shots to clean up the chart
-      hexagonRadiusThreshold: 2
-    })
-    .draw(data);
-
-
-  // Hexagon transitions fade-in and fade-out
-  var currHexagons = d3.selectAll(".shot-chart-hexagon");
-
-  currHexagons.style("opacity", "0");
-  currHexagons
-    .data(data)
-    .transition().duration(1000)
-    .style("opacity", "1")
-    .style("fill", function (d) {
-      return (d.z);
-    })
-    .transition().duration(500)
-    .style("opacity", "0.75");
-
-  // Experiment with drawing a total new chart on top
-  // nextHexagons
-  //   .data(data2)
-  //   .transition().duration(1000)
-  //   .style("opacity", "0")
-  //   .style("fill", function (d) {
-  //     return (d.z);
-  //   });
-};
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   var id = setInterval(() => {
     if (rangeSlider.value < rangeSlider.max) {
-      rangeSlider.value++;
       const currPlayer = playerDropdown.property('value');
       showChart(myData[0][currPlayer][rangeSlider.value]);
+      rangeSlider.value++;
       rangeBullet.innerHTML = rangeSlider.value;
       showSliderValue();
     }
@@ -173,10 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const randPlayer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
 
-
-
+  // select dropdown and populate with list of allPlayers
   const select = document.getElementById("dropdown");
-
   for (var i = 0; i < allPlayers.length; i++) {
     var opt = allPlayers[i];
     var el = document.createElement("option");
@@ -199,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var maxYear = Object.keys(myData[0][randPlayer]).reverse()[0];
 
 
+  // playerDropdown change seleced player triggers redraws
   playerDropdown.on('change', function (d) {
     clearInterval(id);
     let newPlayer = d3.select(this).property('value');
@@ -228,10 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
         rangeSlider.value++;
         rangeBullet.innerHTML = rangeSlider.value;
         showSliderValue();
-
-        // setInterval(() => {
-        //   showChartTwo(myData[0][currPlayer][rangeSlider.value++]);
-        // }, 500);
       }
     }, 1500);
   });
@@ -239,11 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   playerDropdown.property('value', randPlayer);
   rangeBullet.innerHTML = minYear;
 
-
-
-
   showChart(myData[0][randPlayer][minYear]);
-  // showChartTwo(myData[0][randPlayer][maxYear]);
 
   slider.attr('min', minYear)
     .attr('max', maxYear)
@@ -254,49 +148,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rangeBullet.innerHTML = minYear;
 
-  
+  // update rangeSlider value and moves along the slider Value
   function showSliderValue() {
     rangeBullet.innerHTML = rangeSlider.value;    
-
     const range = maxYear - minYear;
-
     var bulletPosition = (rangeSlider.value - minYear) / range;
-
     rangeBullet.style.left = (bulletPosition * 578) + "px";
   }
 
+  // prevent automatic sliding when manually clicking on slider
   slider.on('change', function (d) {
     const currPlayer = playerDropdown.property('value');
     showChart(d[currPlayer][this.value]);
     clearInterval(id);
   });
 
-
-  function search(playerName) {
-    /* select the input element */
-    let playerImgDiv = d3.select('#playerImg');
-
-    // /* fetch the following URL that includes apikey, cx and the value of input */
-    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-      let result = JSON.parse(text);
-
-      if (!result.items) {
-        fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
-          result = JSON.parse(text);
-        });
-      }
-
-      if (!result.items) {
-        playerImgDiv.attr("src", "assets/stern.jpg");
-        return;
-      }
-
-      let myImageSrc = result.items[0].pagemap.cse_image[0].src;
-
-      playerImgDiv.attr("src", myImageSrc);
-    });
-  }
-
+  // pull up player image
   search(randPlayer);
-
 });
+
+
+
+function search(playerName) {
+  /* select the input element */
+  let playerImgDiv = d3.select('#playerImg');
+
+  // /* fetch the following URL that includes apikey, cx and the value of input */
+  fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+    let result = JSON.parse(text);
+
+    if (!result.items) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${playerName}`).then(response => response.text()).then(text => {
+        result = JSON.parse(text);
+      });
+    }
+
+    if (!result.items) {
+      playerImgDiv.attr("src", "assets/stern.jpg");
+      return;
+    }
+
+    let myImageSrc = result.items[0].pagemap.cse_image[0].src;
+
+    playerImgDiv.attr("src", myImageSrc);
+  });
+};
