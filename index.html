@@ -1,71 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Swish</title>
-  <link rel="stylesheet" type="text/css" href="./stylesheets/d3.basketball-shot-chart.css" />
-  <link rel="stylesheet" type="text/css" href="./stylesheets/main.css" />
-  <script src="./static/d3.min.js"></script>
-  <script src="https://rawgit.com/virajsanghvi/d3-plugins/master/hexbin/hexbin.js"></script>
-  <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.js"></script>
-  <script src="https://rawgit.com/virajsanghvi/d3.chart.defaults/master/d3.chart.defaults.js"></script>
-  <script src="./src/d3.basketball-shot-chart.js"></script>
-  <script src="./main.js"></script>
-  <script src="https://kit.fontawesome.com/b658650fd1.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Swish</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/d3.basketball-shot-chart.css" />
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css" />
+    <script src="./static/d3.min.js"></script>
+    <script src="https://rawgit.com/virajsanghvi/d3-plugins/master/hexbin/hexbin.js"></script>
+    <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.js"></script>
+    <script src="https://rawgit.com/virajsanghvi/d3.chart.defaults/master/d3.chart.defaults.js"></script>
+    <script src="./src/d3.basketball-shot-chart.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://kit.fontawesome.com/b658650fd1.js"></script>
 
-  <!-- <link rel="stylesheet" href="animate.min.css"> -->
-  <link rel="stylesheet/scss" type="text/css" href="./stylesheets/slider.scss">
-</head>
+    <!-- <link rel="stylesheet" href="animate.min.css"> -->
+    <link rel="stylesheet/scss" type="text/css" href="./stylesheets/slider.scss">
+  </head>
 
-<body background='./assets/hardwood.png'>
-  <!-- <h1></h1> -->
-  <div id="main-content">
-    <div class="chart-container">
-
-      
-      <div class="slidecontainer">
-
-        <div class="container">
-        
-          <div class="range-slider">
-            <span id="rs-bullet" class="rs-label">100</span> 
-            <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="200" step=".1'">
-        
+  <body background='./assets/hardwood.png'>
+    <div id="main-content">
+      <!-- Left Side (Chart and Slider) -->
+      <div class="chart-container">
+        <div class="slidecontainer">
+          <div class="container">
+            <div class="range-slider">
+              <span id="rs-bullet" class="rs-label">100</span> 
+              <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="200" step=".1'">
+            </div>
+            <div class="box-minmax">
+              <span id="span-min"></span><span id="span-max"></span>
+            </div>
           </div>
-        
-          <div class="box-minmax">
-            <span id="span-min"></span><span id="span-max"></span>
-          </div>
-        
         </div>
-
-        <!-- <input type="range" step=1 id="year" value=0 oninput="selected_year.value = year.value">
-        <output name="selected_year" id="selected_year"></output> -->
       </div>
-    </div>
 
-    <div id="selectors">
-      <div class="slidecontainer">
-        <!-- Player -->
-        <img id='logo' src="assets/swish.png"></src>
-        <select name="players" class="box" id="dropdown">
-          <option disabled selected value selected='selected'>Select player:</option>
-        </select>
-        <img id='playerImg'></img>
+      <!-- Right Side -->
+      <div id="selectors">
+        <div class="slidecontainer">
+          <img id='logo' src="assets/swish.png"></src>
+          <select name="players" class="box" id="dropdown">
+            <option disabled selected value selected='selected'>Select player:</option>
+          </select>
+          <img id='playerImg'></img>
+        </div>
       </div>
+      
     </div>
-  </div>
-<!-- <ul>
-              <li><a href="https://github.com/jinfull" target="_blank" class="fab fa-github"><span class="label">Github</span></a>
-              </li>
-              <li><a href="https://www.linkedin.com/in/jinfull/" target="_blank" class="icon fa-linkedin"><span
-                    class="label">LinkedIn</span></a></li>
-              <li><a href="mailto:jinfull@gmail.com" target="_blank" class="icon fa-envelope"><span class="label">Email</span></a>
-              </li>
-</ul> -->
-</body>
+  </body>
 
 </html>
