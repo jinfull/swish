@@ -27,7 +27,7 @@
     "d3.chart": "^0.3.0",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-sass": "^4.12.0"
   },
   "devDependencies": {
