@@ -28,7 +28,7 @@
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
     "jquery": "^3.4.1",
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.0.2"
